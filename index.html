@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>consentprivacy</title>
+    <link rel="stylesheet" href="styles.css">
+
+    <script>      
+
+        function showSection(sectionId) {
+            var sections = document.querySelectorAll('.content-container');
+            sections.forEach(function(section) {
+                section.style.display = 'none';
+            });
+            document.getElementById(sectionId).style.display = 'block';
+        }
+
+        document.addEventListener('DOMContentLoaded', function() {
+            showSection('consentform');
+            var navLinks = document.querySelectorAll('.nav-links a');
+            navLinks.forEach(function(link) {
+                link.addEventListener('click', function(event) {
+                    event.preventDefault();
+                    var targetId = this.getAttribute('href').substring(1);
+                    showSection(targetId);
+                });
+            });
+        });
+    </script>
+
+    
+</head>
+<body>
+    <nav>
+        <img src="./ull.svg" alt="Logo">        
+        <div class="nav-links">
+            <a href="#consentform"><b>CONSENT FORM</b></a>
+            <a href="#privacypolicy"><b>PRIVACY POLICY</b></a>
+        </div>
+        <img src="./logos_cimcaves/logo2_cimcaves.jpg" alt="LogoCIMcaves" class="logo-right">
+ 
+    </nav>
+
+    <div id="consentform" class="content-container">
+        <div class="section content">
+            <h2>Consent Form</h2>
+            <p>We are conducting a survey to understand the working conditions and environments of professionals in marine ecoregions. Your participation is voluntary and your responses will be kept anonymous.</p>
+            <h3>Data Collected:</h3>
+            <ul>
+                <li>Organization you work for</li>
+                <li>Type of organization</li>
+                <li>Job position</li>
+                <li>Marine ecoregion where you conduct your research</li>
+            </ul>
+            <h3>Purpose:</h3>
+            <p>The data collected will be used solely for research purposes to understand human impacts on the biological communities of sea caves. Your data will not be shared with third parties without your explicit consent.</p>
+            <h3>Your Rights:</h3>
+            <ul>
+                <li>Access your data</li>
+                <li>Correct any inaccurate data</li>
+                <li>Request deletion of your data</li>
+                <li>Restrict processing of your data</li>
+                <li>Withdraw your consent at any time</li>
+            </ul>
+            <p>
+            <i>The consent to the terms is done via a checkbox in the survey form</i>
+        </div>
+    </div>
+
+    <div id="privacypolicy" class="content-container" style="display: none;">
+        <div class="section content">
+            <h2>Privacy Policy</h2>
+            <h3>1. Introduction</h3>
+            <p>We are committed to protecting your personal data, respecting your privacy, and complying with international data protection laws including the GDPR (Europe), CCPA (California), LGPD (Brazil), PIPEDA (Canada), Privacy Act (Australia), and PIPL (China). This Privacy Policy explains how we collect, use, and protect your information when you take part in our survey and use our services.</p>
+            <h3>2. Data We Collect</h3>
+            <ul>
+                <li>Organization you work for</li>
+                <li>Type of organization</li>
+                <li>Job position</li>
+                <li>Marine ecoregion and locality where you conduct your research</li>
+            </ul>
+            <h3>3. Purpose of Data Collection</h3>
+            <p>The data collected is used solely for research purposes to understand human impacts on the biological communities of sea caves. Your data will not be shared with third parties without your explicit consent.</p>
+            <h3>4. Legal Basis for Processing</h3>
+            <p>Our processing of your personal data is based on your consent, which you provide by participating in our survey.</p>
+            <h3>5. Data Security</h3>
+            <p>We have implemented appropriate technical and organizational measures to ensure the security and confidentiality of your data, including:</p>
+            <ul>
+                <li>Encryption in Transit: Data transmitted between your device and our servers is encrypted using HTTPS.</li>
+                <li>Encryption at Rest: Data stored on our servers is encrypted using AES-256.</li>
+                <li>Access Controls: Only authorized personnel have access to your data and they are trained on data privacy principles.</li>
+            </ul>
+            <h3>6. Data Retention</h3>
+            <p>We retain your data only as long as necessary for this research. Once the research is concluded, your data will be anonymized or securely deleted.</p>
+            <h3>7. Your Rights</h3>
+            <p>You have the following rights regarding your personal data:</p>
+            <ul>
+                <li>Access: You can request access to your personal data.</li>
+                <li>Rectification: You can request correction of any inaccurate or incomplete data.</li>
+                <li>Deletion: You can request deletion of your personal data.</li>
+                <li>Restriction of Processing: You can request that we limit the processing of your personal data.</li>
+                <li>Data Portability: You can request to receive your personal data in a structured, commonly used, and machine-readable format.</li>
+                <li>Withdrawal of Consent: You can withdraw your consent at any time, which will not affect the lawfulness of processing based on consent before its withdrawal.</li>
+            </ul>
+            <h3>8. International Data Transfers</h3>
+            <p>If we transfer your data outside of the European Economic Area (EEA), we ensure it is protected by appropriate safeguards such as Standard Contractual Clauses.</p>
+            <h3>9. Contact Us</h3>
+            <p>If you have any questions about this Privacy Policy or wish to exercise any of your rights, please use this form.</p>
+            <h3>10. Changes to This Privacy Policy</h3>
+            <p>We may update this Privacy Policy from time to time. Any changes will be posted on this page with an updated revision date.</p>
+            <h3>11. Exercising Your Rights</h3>
+            <p>Given that this survey does not collect personal identifiers such as names or emails, we have implemented an anonymous unique identifier system to enable you to exercise your data protection rights.</p>
+            <p>Upon completing the survey, you will receive a unique identifier. Please save this code. If you wish to access, correct, delete, or restrict the processing of your responses, or exercise any other data protection rights, you can use this identifier to submit your request.</p>
+            <p>To make a request, please fulfil this <a href="https://script.google.com/macros/s/AKfycbxJS1mN5GDm1fChWdy7j6tFuDhoWztvtOrQQqdgwOJUAmISz6ppOKgD5dkLGMOi718vVw/exec" target="_blank">request form</a>:</p>
+            <p>Include your unique identifier in your form to help us locate your responses.</p>   <p>
+        
+            <i>Last Updated: 20th August 2024</i>
+
+        </div>
+    </div>
+
+    <script>
+        document.querySelector('.menu-button').addEventListener('click', function() {
+            var navLinks = document.querySelector('.nav-links');
+            if (navLinks.style.display === 'block') {
+                navLinks.style.display = 'none';
+            } else {
+                navLinks.style.display = 'block';
+            }
+        });
+    </script>
+</body>
+</html>

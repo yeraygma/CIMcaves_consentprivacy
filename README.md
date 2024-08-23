@@ -1,0 +1,3 @@
+# CIMcaves Survey privacy police and consent form content
+
+This website contains both privacy police and consent form to comply with the international legislation for the online survey about cumulative impacts on marine caves for **CIMcaves** investigation conducted by the University of La Laguna (Spain), Ionian University (Greece), University of Burgos (Spain), and the Spanish Institute of Oceanography (Spain).

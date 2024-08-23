@@ -8,13 +8,21 @@
 
     <script>      
 
-        function showSection(sectionId) {
-            var sections = document.querySelectorAll('.content-container');
-            sections.forEach(function(section) {
-                section.style.display = 'none';
-            });
-            document.getElementById(sectionId).style.display = 'block';
-        }
+function showSection(sectionId) {
+          var sections = document.querySelectorAll('.content-container');
+          sections.forEach(function(section) {
+              section.style.display = 'none';
+          });
+
+          var targetSection = document.getElementById(sectionId);
+          targetSection.style.display = 'block';
+
+          var offset = document.querySelector('nav').offsetHeight;
+          var elementPosition = targetSection.getBoundingClientRect().top;
+          var offsetPosition = elementPosition - offset;
+
+          window.scrollBy({ top: offsetPosition, behavior: 'smooth' });
+      }
 
         document.addEventListener('DOMContentLoaded', function() {
             showSection('consentform');
@@ -27,12 +35,20 @@
                 });
             });
         });
+
+         // Mostrar/ocultar el menú en pantallas móviles
+         document.querySelector('.menu-button').addEventListener('click', function() {
+              var navLinks = document.querySelector('.nav-links');
+              navLinks.classList.toggle('show');
+          });
+
     </script>
 
     
 </head>
 <body>
     <nav>
+        <button class="menu-button">☰</button> 
         <img src="./ull.svg" alt="Logo">        
         <div class="nav-links">
             <a href="#consentform"><b>CONSENT FORM</b></a>

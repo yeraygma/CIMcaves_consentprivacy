@@ -24,43 +24,26 @@ nav {
     z-index: 100;
 }
 
-/* Añadido: Definición de .nav-center para pantallas de escritorio */
-.nav-center {
-    display: flex;
-    flex: 1; /* Ocupa el espacio disponible entre el menú y el logo derecho */
-    justify-content: center; /* Centra horizontalmente las imágenes */
-    align-items: center;
-}
 
-.nav-center img {
-    height: 2.2vw;
-    margin: 0 1vw; /* Ajusta el espacio entre las imágenes */
-}
-
-nav .logo-right {
-    height: 5.5vw;
-    margin-left: auto;
-    margin-right: 5%; /* Alinea el logo derecho a la derecha */
-}
 
 .nav-links {
-    display: flex;
+    flex-grow: 1; /* Permite que los enlaces ocupen todo el espacio disponible */
+    display: none;
+    flex-direction: row;
+    background-color: transparent;
+    width: 100%;
+    position: static;
     justify-content: center;
-    flex-grow: 1; /* Ocupa todo el espacio disponible */
-    gap: 40px; /* Espacio entre los elementos */
+    gap: 40px; /* Espacio entre elementos de navegación */
+    margin: 0 auto;
 }
 
-.nav-links a {
-    color: black;
-    text-decoration: none;
-    font-size: 1.5vw;
-}
+.nav-links a{
+    color: black; /* Texto en color negro */
+    text-decoration: none; /* Sin subrayado */
+    font-size: 18px;  /* Tamaño de fuente ajustado */
 
 
-
-.menu-button:focus + .nav-links,
-.nav-links:focus-within {
-    display: flex; /* Hace visibles los enlaces cuando se activa el botón del menú (version movil*/
 }
 
 .menu-button {
@@ -69,6 +52,13 @@ nav .logo-right {
     border: none;
     cursor: pointer;
 }
+
+.menu-button:focus + .nav-links,
+.nav-links:focus-within {
+    display: flex; /* Hace visibles los enlaces cuando se activa el botón del menú (version movil*/
+}
+
+
 
 
 nav img {
@@ -82,9 +72,6 @@ nav .logo-right {
     
 }
 
-nav button {
-    padding: 15px;
-}
 
 
 
@@ -128,7 +115,16 @@ li a {
     color: #31a906ed; /* Color de los enlaces */
 }
 
-
+.nav-links {
+    display: flex; /* Muestra los enlaces en formatos no móviles */
+    flex-direction: row; /* Cambio para alinear horizontalmente */
+    position: static; /* Restablece la posición estándar */
+    background: transparent; /* Fondo transparente en no móviles */
+    box-shadow: none; /* Sin sombra en no móviles */
+    width: 100%; /* Ancho auto para contener los elementos justamente */
+    margin: 0 auto; /* Centrado dentro de la barra de navegación */
+ 
+}
 
 
 .home-section {

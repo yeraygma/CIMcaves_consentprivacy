@@ -198,11 +198,14 @@ li a {
     
     
 
-    nav img {
-        height: 15vw;
+    .nav-center img {
+        height: 3vw;
         order: 1;
         left: 0%;
         transform: translateX(80%); /* Centra el logo en la barra de navegación */
+        margin-right: 2vw;
+        margin-left: 3vw;
+        gap:2vw;
   
     }
 

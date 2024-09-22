@@ -57,6 +57,23 @@ nav .logo-right {
 }
 
 
+.nav-links button {
+    height: 2vw; /* Ajusta la altura del botón */
+    font-family: 'Calibri', sans-serif;
+    width: auto; /* Mantiene el ancho automático basado en el contenido */
+    padding: 0 1vw; /* Añade algo de espacio alrededor del texto dentro del botón */
+    font-size: 1vw; /* Ajusta el tamaño de la fuente basado en el ancho de la ventana */
+    background-color: #007BFF; /* Color de fondo del botón */
+    color: white; /* Color del texto del botón */
+    border: none; /* Elimina el borde predeterminado */
+    border-radius: 5px; /* Añade bordes redondeados */
+    cursor: pointer; /* Cambia el cursor al pasar por el botón */
+}
+  
+.nav-links button:hover {
+    background-color: #0056b3; /* Cambia el color de fondo al pasar el ratón */
+}
+
 
 .menu-button:focus + .nav-links,
 .nav-links:focus-within {
@@ -191,7 +208,17 @@ li a {
         font-size: 2.5vw;  /* Tamaño de fuente ajustado */
         width: 100%; /* Hace que cada enlace ocupe el ancho completo del contenedor */
         text-align: center; /* Centra el texto de cada enlace */
-        padding: 8px 0; /* Agrega un poco de padding vertical para mejor toque */
+        padding: 20px 0; /* Agrega un poco de padding vertical para mejor toque */
+        box-sizing: border-box; /* Asegura que el padding no afecte el ancho externo */
+        display: block; /* Hace que cada enlace se trate como un bloque, ocupando una línea completa */
+    }
+    .nav-links button {
+        text-align: center; /* Centra el texto de cada enlace */
+        font-family: 'Calibri', sans-serif;
+        font-size: 2.5vw;  /* Tamaño de fuente ajustado */
+        width: 100%; /* Hace que cada enlace ocupe el ancho completo del contenedor */
+        text-align: center; /* Centra el texto de cada enlace */
+        padding: 6vw 0; /* Agrega un poco de padding vertical para mejor toque */
         box-sizing: border-box; /* Asegura que el padding no afecte el ancho externo */
         display: block; /* Hace que cada enlace se trate como un bloque, ocupando una línea completa */
     }

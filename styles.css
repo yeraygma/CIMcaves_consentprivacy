@@ -215,6 +215,7 @@ li a {
     .nav-links button {
         text-align: center; /* Centra el texto de cada enlace */
         font-family: 'Calibri', sans-serif;
+        background-color: #007BFF; /* Color de fondo del botón */
         font-size: 2.5vw;  /* Tamaño de fuente ajustado */
         width: 100%; /* Hace que cada enlace ocupe el ancho completo del contenedor */
         text-align: center; /* Centra el texto de cada enlace */
@@ -223,6 +224,9 @@ li a {
         display: block; /* Hace que cada enlace se trate como un bloque, ocupando una línea completa */
     }
     
+    .nav-links button:hover {
+        background-color: #0056b3; /* Cambia el color de fondo al pasar el ratón */
+    }
     
 
     .nav-center img {

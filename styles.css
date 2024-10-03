@@ -24,20 +24,10 @@ nav {
     z-index: 100;
 }
 
-/* Añadido: Definición de .nav-center para pantallas de escritorio */
-.nav-center {
-    display: flex;
-    flex: 1; /* Ocupa el espacio disponible entre el menú y el logo derecho */
-    justify-content: center; /* Centra horizontalmente las imágenes */
-    align-items: center;
-}
 
-.nav-center img {
-    height: 2.2vw;
-    margin: 0 1vw; /* Ajusta el espacio entre las imágenes */
-}
 
-nav .logo-right {
+
+.logo-right {
     height: 5.5vw;
     margin-left: auto;
     margin-right: 5%; /* Alinea el logo derecho a la derecha */
@@ -47,7 +37,7 @@ nav .logo-right {
     display: flex;
     justify-content: center;
     flex-grow: 1; /* Ocupa todo el espacio disponible */
-    gap: 40px; /* Espacio entre los elementos */
+    gap: 7vw; /* Espacio entre los elementos */
 }
 
 .nav-links a {
@@ -88,12 +78,8 @@ nav .logo-right {
 }
 
 
-nav img {
-    height: 7vw;
-    margin-right: 5%;
-}
 
-nav .logo-right {
+.logo-right {
     height: 5.5vw;
     margin-left: auto; /* Asegura que el logo derecho se alinee a la derecha */
     
@@ -106,9 +92,7 @@ nav button {
 
 
 
-
-
-.content-container, .bibliography-section {
+.consent-section, .privacy-section {
     width: 70%; /* Establecido para tablet y desktop */
     margin: 20px auto;
     padding: 20px;
@@ -141,182 +125,124 @@ td{
 }
 
 
-li a {
-    color: #31a906ed; /* Color de los enlaces */
-}
 
 
 
 
-.home-section {
-    position: relative;
-    text-align: center;
-    background-color: black;
-    color: white;
+.home-image {
+    display: block;
     margin: 0 auto;
+    width: 70%;
+    height: auto;
+    position: relative;
+    top: -60px;
+    z-index: 1;
 }
 
 
 
-.main-header {
-    position: absolute;
-    top: 40%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    color: white;  /* Asegura que el texto sea visible sobre la imagen */
-    width: 70%;  /* Ajustado para centrar el texto correctamente */
-    font-size: 1vw;
-    z-index: 2; /* Valor de z-index menor que el del .main-header */
-}
+
 
 @media (max-width: 768px) {
     .menu-button {
-        display: block;
+        display: block; /* Visible en móviles */
         background: none;
         border: none;
-        font-size: 24px;
         color: black;
-        z-index: 102;
-        position: absolute;
-        left: 5%;
+        font-size: 8vw;
+        cursor: pointer;
+        margin-left: auto; /* Empuja el botón hacia la derecha */
+        margin-right: 7vw;
+        order: 2;
     }
 
-   
-
-    nav {
-        width: 100vw;  /* Usa 100vw para asegurar que no se salga del viewport */
-        padding: 0 10px;  /* Ajusta el padding para dispositivos móviles si es necesario */
-        height: 17vw; 
+    .menu-button:focus + .nav-links,
+    .nav-links:focus-within {
+        display: flex;
     }
 
-    .nav-links{
+
+    .nav-links {
         display: none;
-        width: 20%; /* Ocupa todo el ancho cuando se muestra */
+        width: 80%; /* Ocupa el 80% del ancho cuando se muestra */
         flex-direction: column;
         position: absolute;
         top: 70px;
         background-color: white;
-        width: 80%;
         padding: 10px 0;
-        font-size: 16px;
         align-items: center; 
         justify-content: center;
-        z-index: 101;  /* Asegura que esté por encima de otros elementos */
 
     }
-    .nav-links a{
-        font-size: 2.5vw;  /* Tamaño de fuente ajustado */
-        width: 100%; /* Hace que cada enlace ocupe el ancho completo del contenedor */
-        text-align: center; /* Centra el texto de cada enlace */
-        padding: 20px 0; /* Agrega un poco de padding vertical para mejor toque */
-        box-sizing: border-box; /* Asegura que el padding no afecte el ancho externo */
-        display: block; /* Hace que cada enlace se trate como un bloque, ocupando una línea completa */
-    }
-    .nav-links button {
-        text-align: center; /* Centra el texto de cada enlace */
-        font-family: 'Calibri', sans-serif;
-        background-color: #007BFF; /* Color de fondo del botón */
-        font-size: 2.5vw;  /* Tamaño de fuente ajustado */
-        width: 100%; /* Hace que cada enlace ocupe el ancho completo del contenedor */
-        text-align: center; /* Centra el texto de cada enlace */
-        padding: 6vw 0; /* Agrega un poco de padding vertical para mejor toque */
-        box-sizing: border-box; /* Asegura que el padding no afecte el ancho externo */
-        display: block; /* Hace que cada enlace se trate como un bloque, ocupando una línea completa */
-    }
-    
-    .nav-links button:hover {
-        background-color: #0056b3; /* Cambia el color de fondo al pasar el ratón */
-    }
-    
 
-    .nav-center img {
-        height: 3vw;
+    /* Mostrar el menú cuando se añade la clase "show" */
+    .nav-links.show {
+       display: flex;
+    }
+
+    .nav-links a {
+        font-size: 10px;
+        width: 100%;
+        text-align: center;
+        padding: 8px 0;
+        box-sizing: border-box;
+        display: block;
+    }
+
+    .nav-links button{
+        font-size: 10px;
+        width: 100%;
+        text-align: center;
+        padding: 20px 0;
+        box-sizing: border-box;
+        display: block;
+    }
+
+    .nav-links a:hover {
+        background-color: #f0f0f0;
+    }
+
+    /* Ajustar el contenedor de navegación en móviles */
+    nav {
+        width: 100vw;
+        padding: 0 10px;
+        height: auto; 
+        display: flex;
+        align-items: center;
+        justify-content: space-between; /* Asegura que el logo y el botón estén en los extremos */
+    }
+
+
+
+    /* Alinear el logo a la izquierda en móviles */
+    .logo-right {
+        height: 15vw; /* Mantén el tamaño actual del logo */
+        margin-right: auto; /* Empuja el logo hacia la izquierda */
         order: 1;
-        left: 0%;
-        transform: translateX(80%); /* Centra el logo en la barra de navegación */
-        margin-right: 2vw;
-        margin-left: 3vw;
-        gap:2vw;
-  
     }
 
-    nav .logo-right {
-        height: 15vw;
-        order: 2;
-        margin-right: 20%; /* Alinea la imagen a la derecha */
-    }
-
-    
-    .menu-button:focus + .nav-links,
-    .nav-links:focus-within {
-        display: flex; /* Muestra los enlaces cuando el menú está activo */
-   
-    }
-
-    
-
-    .content-container{
+    .consent-section, .privacy-section{
         padding: 20;
         padding-right: -20px; /* Añade un padding de 40 píxeles al lado derecho */
         background-color: white;
         width: 90%;
     }
 
-    .dataframe.criteria-table {
-        width: 100%;
-        margin-top: 50px;
-        overflow-x: auto;
-        border:"1";
 
-    }
-
-    .dataframe.pressures-table{
-        width: 100%;
-        margin-top: 50px;
-        overflow-x: auto;
-        border:"1";
-    }
-
-    .home-section {
-        position: relative;
-        text-align: center;
-        background-color: black;
-        color: white;
-        margin: 0 auto;
-    }
-
-    .main-header {
-        position: absolute;
-        top: 20%;
-        left: 50%;
-        transform: translate(-50%, -30%);
-        color: white;  /* Asegura que el texto sea visible sobre la imagen */
-        width: 100%;  /* Ajustado para centrar el texto correctamente */
-        align-items: center; 
-        z-index: 2; /* Valor de z-index menor que el del .main-header */
-    }
 
     .home-image {
         display: block;
         margin: 0 auto;
         width: 100%;
         height: auto;
-        position: relative; /* Añade posición relativa para que el desplazamiento se aplique correctamente */
-        top: -60px; /* Desplaza la imagen 50px hacia arriba */
-        z-index: 1; /* Valor de z-index menor que el del .main-header */
-    
+        position: relative;
+        top: -60px;
+        z-index: 1;
     }
 
-    /* Contenedor específico para .criteria-table que permite desplazamiento horizontal */
-    .criteria-table-container {
-    overflow-x: auto;        /* Permite el desplazamiento horizontal si el contenido excede el ancho de la pantalla */
-    }
 
-    /* Ajustes para .pressures-table si también se requiere desplazamiento horizontal */
-    .pressures-table-container {
-    overflow-x: auto;        /* Permite el desplazamiento horizontal, opcional para .pressures-table */
-    }
-   
 
+
+  
 
 }

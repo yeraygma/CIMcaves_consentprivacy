@@ -6,26 +6,30 @@
     <title>CIMcaves privacy police</title>
     <link rel="stylesheet" href="styles.css">
 
-    <script>      
+    <script>
+        // Función para mostrar una sección específica y ocultar las demás
+        function showSection(sectionId) {
+            var sections = document.querySelectorAll('.content-container');
+            sections.forEach(function(section) {
+                section.style.display = 'none';
+            });
 
-function showSection(sectionId) {
-          var sections = document.querySelectorAll('.content-container');
-          sections.forEach(function(section) {
-              section.style.display = 'none';
-          });
+            var targetSection = document.getElementById(sectionId);
+            targetSection.style.display = 'block';
 
-          var targetSection = document.getElementById(sectionId);
-          targetSection.style.display = 'block';
+            // Scroll suave a la sección
+            var offset = document.querySelector('nav').offsetHeight;
+            var elementPosition = targetSection.getBoundingClientRect().top;
+            var offsetPosition = elementPosition - offset;
 
-          var offset = document.querySelector('nav').offsetHeight;
-          var elementPosition = targetSection.getBoundingClientRect().top;
-          var offsetPosition = elementPosition - offset;
-
-          window.scrollBy({ top: offsetPosition, behavior: 'smooth' });
-      }
+            window.scrollBy({ top: offsetPosition, behavior: 'smooth' });
+        }
 
         document.addEventListener('DOMContentLoaded', function() {
+            // Mostrar la sección consentform por defecto al cargar la página
             showSection('consentform');
+
+            // Añadir eventos de clic a los enlaces del menú para mostrar la sección correcta
             var navLinks = document.querySelectorAll('.nav-links a');
             navLinks.forEach(function(link) {
                 link.addEventListener('click', function(event) {
@@ -34,14 +38,13 @@ function showSection(sectionId) {
                     showSection(targetId);
                 });
             });
+
+            // Mostrar/ocultar el menú en pantallas móviles
+            document.querySelector('.menu-button').addEventListener('click', function() {
+                var navLinks = document.querySelector('.nav-links');
+                navLinks.classList.toggle('show');
+            });
         });
-
-         // Mostrar/ocultar el menú en pantallas móviles
-         document.querySelector('.menu-button').addEventListener('click', function() {
-              var navLinks = document.querySelector('.nav-links');
-              navLinks.classList.toggle('show');
-          });
-
     </script>
 
     
@@ -62,7 +65,7 @@ function showSection(sectionId) {
 
     <img src="./foto_background/divers_sargos.JPG" alt="Background" class="home-image">
 
-    <div id="consentform" class="consent-section">
+    <div id="consentform" class="consent-section" >
         <div class="section content">
             <h2>Consent Form</h2>
             <p>We are conducting a survey to improve our understanding of how human impact affects marine caves Your participation is voluntary and your responses will be kept anonymous.</p>

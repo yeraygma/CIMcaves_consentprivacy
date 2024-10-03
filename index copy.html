@@ -13,22 +13,24 @@
             sections.forEach(function(section) {
                 section.style.display = 'none';
             });
-
+    
             var targetSection = document.getElementById(sectionId);
-            targetSection.style.display = 'block';
-
-            // Scroll suave a la sección
-            var offset = document.querySelector('nav').offsetHeight;
-            var elementPosition = targetSection.getBoundingClientRect().top;
-            var offsetPosition = elementPosition - offset;
-
-            window.scrollBy({ top: offsetPosition, behavior: 'smooth' });
+            if (targetSection) {
+                targetSection.style.display = 'block';
+    
+                // Scroll suave a la sección
+                var offset = document.querySelector('nav').offsetHeight;
+                var elementPosition = targetSection.getBoundingClientRect().top;
+                var offsetPosition = elementPosition - offset;
+    
+                window.scrollBy({ top: offsetPosition, behavior: 'smooth' });
+            }
         }
-
+    
         document.addEventListener('DOMContentLoaded', function() {
             // Mostrar la sección consentform por defecto al cargar la página
             showSection('consentform');
-
+    
             // Añadir eventos de clic a los enlaces del menú para mostrar la sección correcta
             var navLinks = document.querySelectorAll('.nav-links a');
             navLinks.forEach(function(link) {
@@ -38,7 +40,7 @@
                     showSection(targetId);
                 });
             });
-
+    
             // Mostrar/ocultar el menú en pantallas móviles
             document.querySelector('.menu-button').addEventListener('click', function() {
                 var navLinks = document.querySelector('.nav-links');
@@ -46,6 +48,7 @@
             });
         });
     </script>
+    
 
     
 </head>
@@ -62,7 +65,7 @@
             </div>
          
     </nav>
-
+    
 
   
 
@@ -152,15 +155,6 @@
         </div>
     </div>
 
-    <script>
-        document.querySelector('.menu-button').addEventListener('click', function() {
-            var navLinks = document.querySelector('.nav-links');
-            if (navLinks.style.display === 'block') {
-                navLinks.style.display = 'none';
-            } else {
-                navLinks.style.display = 'block';
-            }
-        });
-    </script>
+
 </body>
 </html>

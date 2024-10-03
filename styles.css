@@ -128,7 +128,20 @@ nav button {
 
 
 
+
 @media (max-width: 768px) {
+    .menu-button {
+        display: block; /* Visible en móviles */
+        background: none;
+        border: none;
+        color: black;
+        font-size: 10vw;
+        cursor: pointer;
+        margin-left: auto; /* Empuja el botón hacia la derecha */
+        margin-right: 7vw;
+        order: 2;
+    }
+
     .main-header {
         position: absolute;
         top: 0%;
@@ -141,11 +154,80 @@ nav button {
         font-size: 4vw;
     }
 
+    .menu-button:focus + .nav-links,
+    .nav-links:focus-within {
+        display: flex;
+    }
+
+
+    .nav-links {
+        display: none;
+        width: 80%; /* Ocupa el 80% del ancho cuando se muestra */
+        flex-direction: column;
+        position: absolute;
+        top: 70px;
+        background-color: white;
+        padding: 10px 0;
+        align-items: center; 
+        justify-content: center;
+
+    }
+
+    /* Mostrar el menú cuando se añade la clase "show" */
+    .nav-links.show {
+       display: flex;
+    }
+
+    .nav-links a {
+        font-size: 10px;
+        width: 100%;
+        text-align: center;
+        padding: 8px 0;
+        box-sizing: border-box;
+        display: block;
+    }
+
+    .nav-links button{
+        font-size: 10px;
+        width: 100%;
+        text-align: center;
+        padding: 20px 0;
+        box-sizing: border-box;
+        display: block;
+    }
+
+    .nav-links a:hover {
+        background-color: #f0f0f0;
+    }
+
+    /* Ajustar el contenedor de navegación en móviles */
+    nav {
+        width: 100vw;
+        padding: 0 10px;
+        height: auto; 
+        display: flex;
+        align-items: center;
+        justify-content: space-between; /* Asegura que el logo y el botón estén en los extremos */
+    }
+
+
+
+    /* Alinear el logo a la izquierda en móviles */
+    .logo-right {
+        height: 15vw; /* Mantén el tamaño actual del logo */
+        margin-left: 5vw; /* Empuja el logo hacia la izquierda */
+        order: 1;
+    }
+
     .consent-section, .privacy-section{
         padding: 20;
         padding-right: -20px; /* Añade un padding de 40 píxeles al lado derecho */
         background-color: white;
         width: 90%;
+    }
+    .privacy-section{
+        transform: translateY(-100px); /* Desplaza la imagen 20px hacia arriba */
+
     }
 
     .home-section {
@@ -167,138 +249,9 @@ nav button {
         z-index: 1;
     }
 
-    /* Ocultar el checkbox */
-    .menu-toggle {
-        display: none;
-    }
 
-    /* Estilo básico del botón del menú */
-    .menu-button {
-        font-size: 10vw;
-        cursor: pointer;
-        background: none;
-        border: none;
-        position: absolute;
-        right: 10px; /* Posiciona el botón a la derecha */
-        top: 15px;
-        z-index: 10; /* Asegura que el botón esté encima de otros elementos */
-    }
 
-    /* Icono de barras para el menú por defecto */
-    .menu-button::before {
-        content: '☰'; /* Este es el icono del menú hamburguesa (barras) */
-        font-size: 10vw;
-    }
 
-    /* Cambiar el icono de barras a "X" cuando el checkbox esté activado */
-    .menu-toggle:checked + .menu-button::before {
-        content: '✖'; /* Cambia las barras a una X */
-    }
+  
 
-    /* Ocultar el menú inicialmente */
-    .nav-links {
-        display: none;
-        flex-direction: column;
-        background-color: white;
-        position: absolute;
-        top: 70px;
-        left: 0;
-        width: 100%;
-        padding: 10px 0;
-        align-items: center; 
-        justify-content: center;
-        z-index: 9; /* Asegura que esté detrás del botón de menú */
-    }
-
-    @media (max-width: 768px) {
-        /* Ocultar el checkbox */
-        .menu-toggle {
-            display: none;
-        }
-    
-        /* Estilo básico del botón del menú */
-        .menu-button {
-            font-size: 10vw;
-            cursor: pointer;
-            background: none;
-            border: none;
-            position: absolute;
-            right: 10px; /* Posiciona el botón a la derecha */
-            top: 15px;
-            z-index: 10; /* Asegura que el botón esté encima de otros elementos */
-        }
-    
-        /* Icono de barras para el menú por defecto */
-        .menu-button::before {
-            content: '☰'; /* Este es el icono del menú hamburguesa (barras) */
-            font-size: 10vw;
-            color: black; /* Aseguramos que sea visible */
-        }
-    
-        /* Cambiar el icono de barras a "X" cuando el checkbox esté activado */
-        .menu-toggle:checked + .menu-button::before {
-            content: '✖'; /* Cambia las barras a una X */
-        }
-    
-        /* Ocultar el menú inicialmente */
-        .nav-links {
-            display: none;
-            flex-direction: column;
-            background-color: white;
-            position: absolute;
-            top: 70px;
-            left: 0;
-            width: 100%;
-            padding: 10px 0;
-            align-items: center; 
-            justify-content: center;
-            z-index: 9; /* Asegura que esté detrás del botón de menú */
-        }
-    
-        /* Mostrar el menú cuando el checkbox está activado */
-        .menu-toggle:checked ~ .nav-links {
-            display: flex;
-        }
-    
-        /* Enlaces del menú */
-        .nav-links a {
-            font-size: 10px;
-            width: 100%;
-            text-align: center;
-            padding: 8px 0;
-            box-sizing: border-box;
-            display: block;
-        }
-    
-        .nav-links button {
-            font-size: 10px;
-            width: 100%;
-            text-align: center;
-            padding: 20px 0;
-            box-sizing: border-box;
-            display: block;
-        }
-    
-        .nav-links a:hover {
-            background-color: #f0f0f0;
-        }
-    
-        /* Ajustar el contenedor de navegación en móviles */
-        nav {
-            width: 100vw;
-            padding: 0 10px;
-            height: 18vw;
-            display: flex;
-            align-items: center;
-            justify-content: space-between;
-        }
-    
-        /* Alinear el logo a la izquierda en móviles */
-        .logo-right {
-            height: 15vw; 
-            margin-left: 5vw; 
-            order: 1;
-        }
-    }
-    
 }

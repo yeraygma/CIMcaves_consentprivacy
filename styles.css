@@ -9,6 +9,8 @@ html, body {
 
 
 
+
+
 nav {
     background-color: white;
     height: 6vw;
@@ -25,13 +27,13 @@ nav {
 }
 
 
-
-
 .logo-right {
     height: 5.5vw;
-    margin-left: auto;
-    margin-right: 5%; /* Alinea el logo derecho a la derecha */
+    margin-left: auto; /* Asegura que el logo derecho se alinee a la derecha */
+    
 }
+
+
 
 .nav-links {
     display: flex;
@@ -44,6 +46,34 @@ nav {
     color: black;
     text-decoration: none;
     font-size: 1.5vw;
+}
+
+.menu-button:focus + .nav-links,
+.nav-links:focus-within {
+    display: flex; /* Hace visibles los enlaces cuando se activa el botón del menú (version movil*/
+}
+
+nav button {
+    padding: 15px;
+}
+
+.menu-button {
+    display: none; /* Oculto por defecto */
+    background: none;
+    border: none;
+    cursor: pointer;
+}
+
+
+.consent-section, .privacy-section {
+    width: 70%; /* Establecido para tablet y desktop */
+    margin: 20px auto;
+    padding: 20px;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+    background-color: white;
+    color: black;
+    text-align: justify;
+    transform: translateY(-50px); /* Desplaza la imagen 20px hacia arriba */
 }
 
 
@@ -64,69 +94,13 @@ nav {
     background-color: #0056b3; /* Cambia el color de fondo al pasar el ratón */
 }
 
-
-.menu-button:focus + .nav-links,
-.nav-links:focus-within {
-    display: flex; /* Hace visibles los enlaces cuando se activa el botón del menú (version movil*/
-}
-
-.menu-button {
-    display: none; /* Oculto por defecto */
-    background: none;
-    border: none;
-    cursor: pointer;
-}
-
-
-
-.logo-right {
-    height: 5.5vw;
-    margin-left: auto; /* Asegura que el logo derecho se alinee a la derecha */
-    
-}
-
-nav button {
-    padding: 15px;
-}
-
-
-
-
-.consent-section, .privacy-section {
-    width: 70%; /* Establecido para tablet y desktop */
-    margin: 20px auto;
-    padding: 20px;
-    box-shadow: 0 4px 8px rgba(0,0,0,0.1);
-    background-color: white;
-    color: black;
-    text-align: justify;
-    transform: translateY(-60px); /* Desplaza la imagen 20px hacia arriba */
-}
-
-td{
+.home-section {
+    position: relative;
     text-align: center;
+    background-color: black;
+    color: white;
+    margin: 0 auto;
 }
-
-.dataframe.criteria-table,
-.dataframe.pressures-table {
-    width: 100%;           /* Establece el ancho al 100% del contenedor */
-    margin-top: 50px;      /* Añade un margen superior de 50px */
-    overflow-x: auto;      /* Permite el desplazamiento horizontal si es necesario */
-    border: 1px solid black;  /* Establece un borde sólido, aquí asumo que quieres un borde de 1px de grosor */
-    border-collapse: collapse; /* Colapsa los bordes de las celdas para formar un solo borde continuo */
-}
-
-.dataframe.criteria-table th,
-.dataframe.criteria-table td,
-.dataframe.pressures-table th,
-.dataframe.pressures-table td {
-    border: 1px solid black; /* Asegura que cada celda también tenga un borde, si es necesario */
-    padding: 8px;            /* Añade algo de padding para el texto dentro de las celdas */
-}
-
-
-
-
 
 
 .home-image {
@@ -135,90 +109,36 @@ td{
     width: 70%;
     height: auto;
     position: relative;
-    top: -60px;
+    top: -40px;
     z-index: 1;
 }
 
 
 
+.main-header {
+    position: absolute;
+    top: 18%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    color: white;
+    width: 70%;
+    font-size: 2.5vw;
+    z-index: 2;
+}
+
 
 
 @media (max-width: 768px) {
-    .menu-button {
-        display: block; /* Visible en móviles */
-        background: none;
-        border: none;
-        color: black;
-        font-size: 8vw;
-        cursor: pointer;
-        margin-left: auto; /* Empuja el botón hacia la derecha */
-        margin-right: 7vw;
-        order: 2;
-    }
-
-    .menu-button:focus + .nav-links,
-    .nav-links:focus-within {
-        display: flex;
-    }
-
-
-    .nav-links {
-        display: none;
-        width: 80%; /* Ocupa el 80% del ancho cuando se muestra */
-        flex-direction: column;
+    .main-header {
         position: absolute;
-        top: 70px;
-        background-color: white;
-        padding: 10px 0;
+        top: 0%;
+        left: 50%;
+        transform: translate(-50%, -30%);
+        color: white;
+        width: 100%;
         align-items: center; 
-        justify-content: center;
-
-    }
-
-    /* Mostrar el menú cuando se añade la clase "show" */
-    .nav-links.show {
-       display: flex;
-    }
-
-    .nav-links a {
-        font-size: 10px;
-        width: 100%;
-        text-align: center;
-        padding: 8px 0;
-        box-sizing: border-box;
-        display: block;
-    }
-
-    .nav-links button{
-        font-size: 10px;
-        width: 100%;
-        text-align: center;
-        padding: 20px 0;
-        box-sizing: border-box;
-        display: block;
-    }
-
-    .nav-links a:hover {
-        background-color: #f0f0f0;
-    }
-
-    /* Ajustar el contenedor de navegación en móviles */
-    nav {
-        width: 100vw;
-        padding: 0 10px;
-        height: auto; 
-        display: flex;
-        align-items: center;
-        justify-content: space-between; /* Asegura que el logo y el botón estén en los extremos */
-    }
-
-
-
-    /* Alinear el logo a la izquierda en móviles */
-    .logo-right {
-        height: 15vw; /* Mantén el tamaño actual del logo */
-        margin-right: auto; /* Empuja el logo hacia la izquierda */
-        order: 1;
+        z-index: 2;
+        font-size: 4vw;
     }
 
     .consent-section, .privacy-section{
@@ -228,7 +148,14 @@ td{
         width: 90%;
     }
 
-
+    .home-section {
+        position: relative;
+        text-align: center;
+        background-color: black;
+        color: white;
+        margin: 0 auto;
+        padding-bottom: 20px; /* Añadir espacio inferior si es necesario */
+    }
 
     .home-image {
         display: block;
@@ -236,13 +163,142 @@ td{
         width: 100%;
         height: auto;
         position: relative;
-        top: -60px;
+        top: -40px;
         z-index: 1;
     }
 
+    /* Ocultar el checkbox */
+    .menu-toggle {
+        display: none;
+    }
 
+    /* Estilo básico del botón del menú */
+    .menu-button {
+        font-size: 10vw;
+        cursor: pointer;
+        background: none;
+        border: none;
+        position: absolute;
+        right: 10px; /* Posiciona el botón a la derecha */
+        top: 15px;
+        z-index: 10; /* Asegura que el botón esté encima de otros elementos */
+    }
 
+    /* Icono de barras para el menú por defecto */
+    .menu-button::before {
+        content: '☰'; /* Este es el icono del menú hamburguesa (barras) */
+        font-size: 10vw;
+    }
 
-  
+    /* Cambiar el icono de barras a "X" cuando el checkbox esté activado */
+    .menu-toggle:checked + .menu-button::before {
+        content: '✖'; /* Cambia las barras a una X */
+    }
 
+    /* Ocultar el menú inicialmente */
+    .nav-links {
+        display: none;
+        flex-direction: column;
+        background-color: white;
+        position: absolute;
+        top: 70px;
+        left: 0;
+        width: 100%;
+        padding: 10px 0;
+        align-items: center; 
+        justify-content: center;
+        z-index: 9; /* Asegura que esté detrás del botón de menú */
+    }
+
+    @media (max-width: 768px) {
+        /* Ocultar el checkbox */
+        .menu-toggle {
+            display: none;
+        }
+    
+        /* Estilo básico del botón del menú */
+        .menu-button {
+            font-size: 10vw;
+            cursor: pointer;
+            background: none;
+            border: none;
+            position: absolute;
+            right: 10px; /* Posiciona el botón a la derecha */
+            top: 15px;
+            z-index: 10; /* Asegura que el botón esté encima de otros elementos */
+        }
+    
+        /* Icono de barras para el menú por defecto */
+        .menu-button::before {
+            content: '☰'; /* Este es el icono del menú hamburguesa (barras) */
+            font-size: 10vw;
+            color: black; /* Aseguramos que sea visible */
+        }
+    
+        /* Cambiar el icono de barras a "X" cuando el checkbox esté activado */
+        .menu-toggle:checked + .menu-button::before {
+            content: '✖'; /* Cambia las barras a una X */
+        }
+    
+        /* Ocultar el menú inicialmente */
+        .nav-links {
+            display: none;
+            flex-direction: column;
+            background-color: white;
+            position: absolute;
+            top: 70px;
+            left: 0;
+            width: 100%;
+            padding: 10px 0;
+            align-items: center; 
+            justify-content: center;
+            z-index: 9; /* Asegura que esté detrás del botón de menú */
+        }
+    
+        /* Mostrar el menú cuando el checkbox está activado */
+        .menu-toggle:checked ~ .nav-links {
+            display: flex;
+        }
+    
+        /* Enlaces del menú */
+        .nav-links a {
+            font-size: 10px;
+            width: 100%;
+            text-align: center;
+            padding: 8px 0;
+            box-sizing: border-box;
+            display: block;
+        }
+    
+        .nav-links button {
+            font-size: 10px;
+            width: 100%;
+            text-align: center;
+            padding: 20px 0;
+            box-sizing: border-box;
+            display: block;
+        }
+    
+        .nav-links a:hover {
+            background-color: #f0f0f0;
+        }
+    
+        /* Ajustar el contenedor de navegación en móviles */
+        nav {
+            width: 100vw;
+            padding: 0 10px;
+            height: 18vw;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+    
+        /* Alinear el logo a la izquierda en móviles */
+        .logo-right {
+            height: 15vw; 
+            margin-left: 5vw; 
+            order: 1;
+        }
+    }
+    
 }

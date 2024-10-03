@@ -6,48 +6,7 @@
     <title>CIMcaves privacy police</title>
     <link rel="stylesheet" href="styles.css">
 
-    <script>
-        // Función para mostrar una sección específica y ocultar las demás
-        function showSection(sectionId) {
-            var sections = document.querySelectorAll('.content-container');
-            sections.forEach(function(section) {
-                section.style.display = 'none';
-            });
     
-            var targetSection = document.getElementById(sectionId);
-            if (targetSection) {
-                targetSection.style.display = 'block';
-    
-                // Scroll suave a la sección
-                var offset = document.querySelector('nav').offsetHeight;
-                var elementPosition = targetSection.getBoundingClientRect().top;
-                var offsetPosition = elementPosition - offset;
-    
-                window.scrollBy({ top: offsetPosition, behavior: 'smooth' });
-            }
-        }
-    
-        document.addEventListener('DOMContentLoaded', function() {
-            // Mostrar la sección consentform por defecto al cargar la página
-            showSection('consentform');
-    
-            // Añadir eventos de clic a los enlaces del menú para mostrar la sección correcta
-            var navLinks = document.querySelectorAll('.nav-links a');
-            navLinks.forEach(function(link) {
-                link.addEventListener('click', function(event) {
-                    event.preventDefault();
-                    var targetId = this.getAttribute('href').substring(1);
-                    showSection(targetId);
-                });
-            });
-    
-            // Mostrar/ocultar el menú en pantallas móviles
-            document.querySelector('.menu-button').addEventListener('click', function() {
-                var navLinks = document.querySelector('.nav-links');
-                navLinks.classList.toggle('show');
-            });
-        });
-    </script>
     
 
     
@@ -78,7 +37,7 @@
         </header>
        <img src="./foto_background/divers_sargos.JPG" alt="Background" class="home-image">
 
-        <div id="consentform" class="consent-section">
+        <div id="consentform" class="sections">
             <h2>Consent Form</h2>
             <p>We are conducting a survey to improve our understanding of how human impact affects marine caves. Your participation is voluntary and your responses will be kept anonymous.</p>
             <h3>Data Collected:</h3>
@@ -103,7 +62,7 @@
         </div>
     </div>
 
-    <div id="privacypolicy" class="privacy-section" style="display: none;">
+    <div id="privacypolicy" class="sections" style="display: none;">
         <div class="section content">
             <h2>Privacy Policy</h2>
             <h3>1. Introduction</h3>
@@ -154,6 +113,69 @@
 
         </div>
     </div>
+
+
+    
+<script>
+    document.addEventListener('DOMContentLoaded', function() {
+        var menuButton = document.querySelector('.menu-button');
+        var navLinks = document.querySelector('.nav-links');
+        var menuItems = document.querySelectorAll('.nav-links a');
+
+        // Mostrar/ocultar el menú en pantallas móviles
+        menuButton.addEventListener('click', function() {
+            navLinks.classList.toggle('show');
+        });
+
+        // Cerrar el menú al hacer clic en cualquier enlace del menú
+        menuItems.forEach(function(item) {
+            item.addEventListener('click', function() {
+                navLinks.classList.remove('show');
+            });
+        });
+    });
+</script>
+
+
+    <script>
+        // Función para mostrar una sección específica y ocultar las demás
+        function showSection(sectionId) {
+            var sections = document.querySelectorAll('.sections');
+            sections.forEach(function(section) {
+                section.style.display = 'none';
+            });
+    
+            var targetSection = document.getElementById(sectionId);
+            if (targetSection) {
+                targetSection.style.display = 'block';
+    
+                // Scroll suave a la sección
+                var offset = document.querySelector('nav').offsetHeight;
+                var elementPosition = targetSection.getBoundingClientRect().top;
+                var offsetPosition = elementPosition - offset;
+    
+                window.scrollBy({ top: offsetPosition, behavior: 'smooth' });
+            }
+        }
+    
+        document.addEventListener('DOMContentLoaded', function() {
+            // Mostrar la sección consentform por defecto al cargar la página
+            showSection('consentform');
+    
+            // Añadir eventos de clic a los enlaces del menú para mostrar la sección correcta
+            var navLinks = document.querySelectorAll('.nav-links a');
+            navLinks.forEach(function(link) {
+                link.addEventListener('click', function(event) {
+                    event.preventDefault();
+                    var targetId = this.getAttribute('href').substring(1);
+                    showSection(targetId);
+                });
+            });
+    
+          
+        });
+    </script>
+
 
 
 </body>

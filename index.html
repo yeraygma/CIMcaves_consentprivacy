@@ -6,66 +6,6 @@
     <title>CIMcaves privacy police</title>
     <link rel="stylesheet" href="styles.css">
 
-    <script>
-        // Función para mostrar una sección específica y ocultar las demás
-        function showSection(sectionId) {
-            var sections = document.querySelectorAll('.content-container');
-            sections.forEach(function(section) {
-                section.style.display = 'none';
-            });
-    
-            var targetSection = document.getElementById(sectionId);
-            if (targetSection) {
-                targetSection.style.display = 'block';
-    
-                // Scroll suave a la sección
-                var offset = document.querySelector('nav').offsetHeight;
-                var elementPosition = targetSection.getBoundingClientRect().top;
-                var offsetPosition = elementPosition - offset;
-    
-                window.scrollBy({ top: offsetPosition, behavior: 'smooth' });
-            }
-        }
-    
-        document.addEventListener('DOMContentLoaded', function() {
-            // Mostrar la sección consentform por defecto al cargar la página
-            showSection('consentform');
-    
-            // Añadir eventos de clic a los enlaces del menú para mostrar la sección correcta
-            var navLinks = document.querySelectorAll('.nav-links a');
-            navLinks.forEach(function(link) {
-                link.addEventListener('click', function(event) {
-                    event.preventDefault();
-                    var targetId = this.getAttribute('href').substring(1);
-                    showSection(targetId);
-    
-                    // Ocultar el menú si está desplegado en móviles
-                    var navLinksContainer = document.querySelector('.nav-links');
-                    navLinksContainer.classList.remove('show');  // Remueve la clase 'show' para cerrar el menú
-                });
-            });
-    
-            // Mostrar/ocultar el menú en pantallas móviles
-            document.querySelector('.menu-button').addEventListener('click', function() {
-                var navLinks = document.querySelector('.nav-links');
-                navLinks.classList.toggle('show');
-            });
-    
-            // Cerrar el menú cuando se hace clic en cualquier enlace o botón dentro del menú
-            var menuItems = document.querySelectorAll('.nav-links a, .nav-links button');
-            menuItems.forEach(function(item) {
-                item.addEventListener('click', function() {
-                    var navLinks = document.querySelector('.nav-links');
-                    if (navLinks.classList.contains('show')) {
-                        navLinks.classList.remove('show');  // Remueve la clase 'show' para plegar el menú
-                    }
-                });
-            });
-        });
-    </script>
-    
-    
-    
     
     
 
@@ -73,16 +13,15 @@
 </head>
 <body>
     <nav class="nav-center">
-        <button class="menu-button">☰</button> 
+        <button class="menu-button">☰</button>
         <img src="./logos_cimcaves/logo2_cimcaves.jpg" alt="LogoCIMcaves" class="logo-right">
-            <div class="nav-links">
-              <a href="#consentform"><b>CONSENT FORM</b></a>
-              <a href="#privacypolicy"><b>PRIVACY POLICY</b></a>
-              <button onclick="window.open('https://script.google.com/macros/s/AKfycbyE1gjqwr-osXicpCPqICfvU2sUVfaPrCvpsi-SdvTAKSwqaq6WfxJ_rIsomeD87wckTw/exec', '_blank')">
+        <div class="nav-links">
+            <a href="#consentform" class="section-link"><b>CONSENT FORM</b></a> <!-- Nueva clase -->
+            <a href="#privacypolicy" class="section-link"><b>PRIVACY POLICY</b></a> <!-- Nueva clase -->
+            <button href="https://script.google.com/macros/s/AKfycbxkD0tZVt-7b_mBpEZQKjpvaL2Uy9kyWU04h-XA2ZTjOrt_7_2Xv1HcBSuYtZ1oIaOs_Q/exec" target="_blank">
                 <b>RIGHTS REQUEST FORM</b>
-              </button>
-            </div>
-         
+            </a>
+        </div>
     </nav>
     
 
@@ -97,7 +36,7 @@
         </header>
        <img src="./foto_background/divers_sargos.JPG" alt="Background" class="home-image">
 
-        <div id="consentform" class="consent-section">
+        <div id="consentform" class="sections">
             <h2>Consent Form</h2>
             <p>We are conducting a survey to improve our understanding of how human impact affects marine caves. Your participation is voluntary and your responses will be kept anonymous.</p>
             <h3>Data Collected:</h3>
@@ -122,7 +61,7 @@
         </div>
     </div>
 
-    <div id="privacypolicy" class="privacy-section" style="display: none;">
+    <div id="privacypolicy" class="sections" style="display: none;">
         <div class="section content">
             <h2>Privacy Policy</h2>
             <h3>1. Introduction</h3>
@@ -166,13 +105,76 @@
             <h3>11. Exercising Your Rights</h3>
             <p>Given that this survey does not collect personal identifiers such as names or emails, we have implemented an anonymous unique identifier system to enable you to exercise your data protection rights.</p>
             <p>Upon completing the survey, you will receive a unique identifier. Please save this code. If you wish to access, correct, delete, or restrict the processing of your responses, or exercise any other data protection rights, you can use this identifier to submit your request.</p>
-            <p><b>TO MAKE A RIGHTS REQUEST, PLEASE FILL OUT THIS <a href="https://script.google.com/macros/s/AKfycbyE1gjqwr-osXicpCPqICfvU2sUVfaPrCvpsi-SdvTAKSwqaq6WfxJ_rIsomeD87wckTw/exec" target="_blank">FORM</a>:</b></p>
+            <p><b>TO MAKE A RIGHTS REQUEST, PLEASE FILL OUT THIS <a href="https://script.google.com/macros/s/AKfycbxkD0tZVt-7b_mBpEZQKjpvaL2Uy9kyWU04h-XA2ZTjOrt_7_2Xv1HcBSuYtZ1oIaOs_Q/exec" target="_blank">FORM</a>:</b></p>
             <p>In order to locate your answers, it is essential that you include your form unique identifier.</p>   <p>
         
             <i>Last Updated: 22nd September 2024</i>
 
         </div>
     </div>
+
+
+    
+     
+<script>
+    document.addEventListener('DOMContentLoaded', function() {
+        var menuButton = document.querySelector('.menu-button');
+        var navLinks = document.querySelector('.nav-links');
+        var menuItems = document.querySelectorAll('.nav-links a');
+
+        // Mostrar/ocultar el menú en pantallas móviles
+        menuButton.addEventListener('click', function() {
+            navLinks.classList.toggle('show');
+        });
+
+        // Cerrar el menú al hacer clic en cualquier enlace del menú
+        menuItems.forEach(function(item) {
+            item.addEventListener('click', function() {
+                navLinks.classList.remove('show');
+            });
+        });
+    });
+</script>
+
+<script>
+    // Función para mostrar una sección específica y ocultar las demás
+    function showSection(sectionId) {
+        var sections = document.querySelectorAll('.section-content'); // Nueva clase para las secciones
+        sections.forEach(function(section) {
+            section.style.display = 'none';
+        });
+
+        var targetSection = document.getElementById(sectionId);
+        if (targetSection) {
+            targetSection.style.display = 'block';
+
+            // Scroll suave a la sección
+            var offset = document.querySelector('nav').offsetHeight;
+            var elementPosition = targetSection.getBoundingClientRect().top;
+            var offsetPosition = elementPosition - offset;
+
+            window.scrollBy({ top: offsetPosition, behavior: 'smooth' });
+        }
+    }
+
+    document.addEventListener('DOMContentLoaded', function() {
+        // Mostrar la sección 'consentform' por defecto al cargar la página
+        showSection('consentform');
+
+        // Añadir eventos de clic a los enlaces que controlan las secciones
+        var sectionLinks = document.querySelectorAll('.section-link'); // Usamos esta nueva clase
+        sectionLinks.forEach(function(link) {
+            link.addEventListener('click', function(event) {
+                event.preventDefault();
+                var targetId = this.getAttribute('href').substring(1);
+                showSection(targetId);
+            });
+        });
+    });
+</script>
+
+
+
 
 
 </body>
